@@ -196,6 +196,7 @@ describe SQLObject do
       end
 
       it 'sets the id once the new record is saved' do
+        p cat
         expect(cat.id).to eq(DBConnection.last_insert_row_id)
       end
 

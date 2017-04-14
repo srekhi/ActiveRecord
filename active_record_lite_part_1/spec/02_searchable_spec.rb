@@ -17,6 +17,7 @@ describe 'Searchable' do
   end
 
   it '#where searches with single criterion' do
+    #debugger
     cats = Cat.where(name: 'Breakfast')
     cat = cats.first
 
