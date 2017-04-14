@@ -20,13 +20,26 @@ end
 
 class BelongsToOptions < AssocOptions
   def initialize(name, options = {})
-    # ...
+    default =
+    {
+      primary_key: :id,
+      foreign_key: "#{name}_id".to_sym,
+      class_name: "#{name}".capitalize
+    }
+    options = default.merge(options)
+    options.each do |inst_var, val|
+      send("#{inst_var}=", val)
+    end
   end
+
+  def model_class
+  end 
+
 end
 
 class HasManyOptions < AssocOptions
   def initialize(name, self_class_name, options = {})
-    # ...
+
   end
 end
 
